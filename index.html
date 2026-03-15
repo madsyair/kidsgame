@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kids Game — Belajar Sambil Bermain</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0a0e1a;color:#f0eeff;font-family:system-ui,-apple-system,sans-serif;
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;}
+.hero{text-align:center;max-width:500px;}
+.hero h1{font-size:2rem;margin-bottom:8px;}
+.hero p{color:#6b7294;margin-bottom:24px;line-height:1.6;}
+.games{display:flex;flex-direction:column;gap:12px;width:100%;max-width:400px;}
+.game-card{display:flex;align-items:center;gap:14px;padding:16px 20px;background:#111827;
+  border:1px solid rgba(255,255,255,.08);border-radius:16px;text-decoration:none;color:#f0eeff;
+  transition:all .2s;}
+.game-card:hover{transform:translateY(-3px);border-color:#818cf8;box-shadow:0 8px 24px rgba(129,140,248,.2);}
+.game-icon{font-size:2rem;}
+.game-info h3{font-size:1rem;margin-bottom:2px;}
+.game-info p{font-size:.8rem;color:#6b7294;}
+.credit{margin-top:30px;font-size:.75rem;color:#6b7294;text-align:center;}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>🎮 Kids Game</h1>
+  <p>Koleksi game edukasi untuk anak. Gratis, offline, tanpa iklan.</p>
+</div>
+<div class="games">
+  <a href="multiplication/" class="game-card">
+    <span class="game-icon">🦊✕</span>
+    <div class="game-info">
+      <h3>Kuis Perkalian</h3>
+      <p>5 level bertahap belajar perkalian. Wave system, skor waktu, papan skor.</p>
+    </div>
+  </a>
+  <!-- Tambah game lain di sini nanti -->
+</div>
+<div class="credit">Dibuat oleh Achmad Syahrul Choir menggunakan Claude</div>
+</body>
+</html>
