@@ -5,13 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Kids Game — Koleksi game edukasi matematika gratis untuk anak TK-SD. Belajar tambah, kurang, kali, bagi sambil bermain.">
 <meta name="author" content="Achmad Syahrul Choir">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a0e1a">
 <meta property="og:title" content="Kids Game — Belajar Sambil Bermain">
 <meta property="og:description" content="Koleksi game edukasi matematika gratis untuk anak. Offline, tanpa iklan.">
 <meta property="og:url" content="https://madsyair.github.io/kidsgame/">
 <meta property="og:type" content="website">
 <title>Kids Game — Belajar Sambil Bermain</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
 <link rel="canonical" href="https://madsyair.github.io/kidsgame/">
+<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiS2lkcyBHYW1lIiwic2hvcnRfbmFtZSI6IktpZHMgR2FtZSIsImRlc2NyaXB0aW9uIjoiS29sZWtzaSBnYW1lIGVkdWthc2kgbWF0ZW1hdGlrYSB1bnR1ayBhbmFrIiwic3RhcnRfdXJsIjoiLiIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwYTBlMWEiLCJ0aGVtZV9jb2xvciI6IiMwYTBlMWEiLCJpY29ucyI6W119">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Lilita+One&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
@@ -19,6 +24,8 @@ body{background:#0a0e1a;color:#f0eeff;font-family:'Baloo 2',system-ui,sans-serif
 @keyframes float{0%,100%{transform:translateY(0) rotate(0)}33%{transform:translateY(-10px) rotate(3deg)}66%{transform:translateY(5px) rotate(-2deg)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes bgPan{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
 .hero{text-align:center;max-width:520px;margin-bottom:28px}
 .float-icons{position:relative;height:50px;max-width:400px;margin:0 auto 8px}
 .float-icons span{position:absolute;font-size:24px;animation:float 3s ease-in-out infinite;opacity:.6}
@@ -26,9 +33,8 @@ body{background:#0a0e1a;color:#f0eeff;font-family:'Baloo 2',system-ui,sans-serif
 .hero p{color:#6b7294;line-height:1.6;font-size:14px;font-weight:600}
 .games{display:flex;flex-direction:column;gap:14px;width:100%;max-width:480px}
 .game-card{display:flex;align-items:center;gap:16px;padding:18px 22px;background:#111827;border:1px solid rgba(255,255,255,.08);border-radius:18px;text-decoration:none;color:#f0eeff;transition:all .25s;animation:fadeUp .5s ease both}
-.game-card:nth-child(1){animation-delay:.1s}
-.game-card:nth-child(2){animation-delay:.2s}
-.game-card:nth-child(3){animation-delay:.3s}
+.game-card:nth-child(2){animation-delay:.1s}
+.game-card:nth-child(3){animation-delay:.2s}
 .game-card:hover{transform:translateY(-3px);border-color:#818cf8;box-shadow:0 8px 28px rgba(129,140,248,.2)}
 .game-card:active{transform:translateY(0)}
 .game-icon{font-size:2.4rem;width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);border-radius:14px;flex-shrink:0}
@@ -43,7 +49,22 @@ body{background:#0a0e1a;color:#f0eeff;font-family:'Baloo 2',system-ui,sans-serif
 .credit{margin-top:32px;font-size:.72rem;color:#3b4264;text-align:center;line-height:1.8;font-weight:600}
 .credit a{color:#6b7294;text-decoration:none}
 .credit a:hover{color:#818cf8}
-@media(max-width:380px){.game-card{padding:14px 16px;gap:12px}.game-icon{width:48px;height:48px;font-size:2rem}}
+/* Install banner */
+#install-banner{display:none;width:100%;max-width:480px;margin-bottom:20px;padding:14px 18px;background:linear-gradient(135deg,#1e1b4b,#312e81);border:1px solid #4338ca55;border-radius:16px;animation:slideDown .4s ease;position:relative}
+#install-banner.show{display:block}
+#install-banner .ib-close{position:absolute;top:8px;right:10px;background:none;border:none;color:#6b7294;font-size:18px;cursor:pointer;padding:4px 8px;line-height:1}
+#install-banner .ib-close:hover{color:#a5b4fc}
+#install-banner .ib-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+#install-banner .ib-icon{font-size:28px}
+#install-banner .ib-title{font-size:14px;font-weight:800;color:#c7d2fe}
+#install-banner .ib-desc{font-size:12px;color:#818cf8;font-weight:600;line-height:1.6;margin-bottom:10px}
+#install-banner .ib-steps{font-size:11.5px;color:#a5b4fc;font-weight:600;line-height:1.9;padding:10px 14px;background:rgba(0,0,0,.25);border-radius:10px;margin-bottom:10px}
+#install-banner .ib-steps .step-icon{display:inline-block;min-width:22px}
+#install-banner .ib-btn{display:inline-block;padding:9px 20px;background:linear-gradient(135deg,#6366f1,#818cf8);color:#fff;border:none;border-radius:12px;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;transition:all .2s}
+#install-banner .ib-btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(99,102,241,.4)}
+#install-banner .ib-btn:active{transform:translateY(0)}
+#install-banner .ib-already{font-size:10px;color:#6b7294;margin-top:6px;font-weight:600}
+@media(max-width:380px){.game-card{padding:14px 16px;gap:12px}.game-icon{width:48px;height:48px;font-size:2rem}#install-banner{padding:12px 14px}}
 </style>
 </head>
 <body>
@@ -60,6 +81,9 @@ body{background:#0a0e1a;color:#f0eeff;font-family:'Baloo 2',system-ui,sans-serif
   <h1>Kids Game</h1>
   <p>Koleksi game edukasi matematika untuk anak.<br>Gratis, offline, tanpa iklan.</p>
 </div>
+
+<!-- Install Banner (shown by JS based on browser/device) -->
+<div id="install-banner"></div>
 
 <div class="games">
   <div class="section-label">🎲 Pilih Game</div>
@@ -88,14 +112,226 @@ body{background:#0a0e1a;color:#f0eeff;font-family:'Baloo 2',system-ui,sans-serif
       </div>
     </div>
   </a>
-
-  <!-- Game berikutnya bisa ditambahkan di sini -->
 </div>
 
 <div class="credit">
   Dibuat oleh <a href="https://github.com/madsyair">Achmad Syahrul Choir</a> menggunakan Claude<br>
   <a href="https://github.com/madsyair/kidsgame">github.com/madsyair/kidsgame</a>
 </div>
+
+<script>
+"use strict";
+/**
+ * Smart Install Banner
+ * Detects browser + OS and shows the correct install instructions.
+ * Uses beforeinstallprompt for Chromium, manual steps for others.
+ */
+(function(){
+  const DISMISS_KEY='kidsgame_install_dismissed';
+  const banner=document.getElementById('install-banner');
+  if(!banner)return;
+
+  // Already dismissed?
+  try{if(localStorage.getItem(DISMISS_KEY))return}catch(e){}
+
+  // Already running as installed PWA?
+  if(window.matchMedia('(display-mode:standalone)').matches)return;
+  if(window.navigator.standalone===true)return; // iOS standalone
+
+  // Detect environment
+  const ua=navigator.userAgent||'';
+  const isIOS=/iPhone|iPad|iPod/.test(ua);
+  const isAndroid=/Android/.test(ua);
+  const isMac=/Macintosh/.test(ua);
+  const isWindows=/Windows/.test(ua);
+  const isLinux=/Linux/.test(ua)&&!isAndroid;
+  const isChromeOS=/CrOS/.test(ua);
+
+  const isSafari=/Safari/.test(ua)&&!/Chrome|CriOS|FxiOS|EdgiOS/.test(ua);
+  const isChrome=/Chrome/.test(ua)&&!/Edg|OPR|Samsung/.test(ua);
+  const isCriOS=/CriOS/.test(ua); // Chrome on iOS
+  const isEdge=/Edg/.test(ua);
+  const isFirefox=/Firefox|FxiOS/.test(ua);
+  const isSamsung=/SamsungBrowser/.test(ua);
+  const isOpera=/OPR/.test(ua);
+
+  const isMobile=isIOS||isAndroid;
+  const isDesktop=!isMobile;
+
+  // Determine browser name for display
+  let browserName='Browser';
+  if(isSafari)browserName='Safari';
+  else if(isCriOS)browserName='Chrome';
+  else if(isEdge)browserName='Edge';
+  else if(isSamsung)browserName='Samsung Internet';
+  else if(isOpera)browserName='Opera';
+  else if(isFirefox)browserName='Firefox';
+  else if(isChrome)browserName='Chrome';
+
+  let deviceType=isAndroid?'Android':isIOS?'iPhone/iPad':isWindows?'Windows':isMac?'Mac':isLinux?'Linux':isChromeOS?'ChromeOS':'Komputer';
+
+  // ─── beforeinstallprompt (Chromium desktop & Android) ───
+  let deferredPrompt=null;
+
+  window.addEventListener('beforeinstallprompt',function(e){
+    e.preventDefault();
+    deferredPrompt=e;
+    showBanner('native');
+  });
+
+  // Wait a moment, if beforeinstallprompt didn't fire, show manual instructions
+  setTimeout(function(){
+    if(!deferredPrompt && !banner.classList.contains('show')){
+      showBanner('manual');
+    }
+  },1500);
+
+  function dismiss(){
+    banner.classList.remove('show');
+    banner.style.display='none';
+    try{localStorage.setItem(DISMISS_KEY,'1')}catch(e){}
+  }
+
+  function showBanner(mode){
+    let html='';
+    const close='<button class="ib-close" onclick="this.parentElement.classList.remove(\'show\');this.parentElement.style.display=\'none\';try{localStorage.setItem(\''+DISMISS_KEY+'\',\'1\')}catch(e){}" aria-label="Tutup">&times;</button>';
+
+    if(mode==='native'){
+      // Chromium beforeinstallprompt available
+      html=close;
+      html+='<div class="ib-head"><span class="ib-icon">📲</span><span class="ib-title">Pasang Kids Game di '+deviceType+'</span></div>';
+      html+='<div class="ib-desc">Install sebagai aplikasi — buka lebih cepat, bisa offline, tanpa iklan.</div>';
+      html+='<button class="ib-btn" id="ib-install-btn">📲 Pasang Sekarang</button>';
+      html+='<div class="ib-already">Tidak perlu download dari Play Store / App Store</div>';
+
+      banner.innerHTML=html;
+      banner.classList.add('show');
+
+      document.getElementById('ib-install-btn').addEventListener('click',function(){
+        if(deferredPrompt){
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then(function(r){
+            if(r.outcome==='accepted')dismiss();
+            deferredPrompt=null;
+          });
+        }
+      });
+      return;
+    }
+
+    // ─── Manual instructions per browser/OS ───
+    html=close;
+    html+='<div class="ib-head"><span class="ib-icon">📲</span><span class="ib-title">Pasang Kids Game di '+deviceType+'</span></div>';
+    html+='<div class="ib-desc">Jadikan app — buka lebih cepat dari home screen, bisa offline!</div>';
+
+    if(isIOS && isSafari){
+      // Safari on iOS — the classic flow
+      html+='<div class="ib-steps">';
+      html+='<div><span class="step-icon">1️⃣</span> Ketuk tombol <b>Share</b> <span style="font-size:16px">⎙</span> di bawah layar</div>';
+      html+='<div><span class="step-icon">2️⃣</span> Scroll dan ketuk <b>"Add to Home Screen"</b></div>';
+      html+='<div><span class="step-icon">3️⃣</span> Ketuk <b>"Add"</b> di pojok kanan atas</div>';
+      html+='</div>';
+    }else if(isIOS && isCriOS){
+      // Chrome on iOS
+      html+='<div class="ib-steps">';
+      html+='<div><span class="step-icon">1️⃣</span> Ketuk tombol <b>Share</b> <span style="font-size:16px">⎙</span> di bar atas</div>';
+      html+='<div><span class="step-icon">2️⃣</span> Pilih <b>"Add to Home Screen"</b></div>';
+      html+='<div><span class="step-icon">3️⃣</span> Ketuk <b>"Add"</b></div>';
+      html+='</div>';
+      html+='<div class="ib-already">💡 Untuk pengalaman terbaik, buka di Safari</div>';
+    }else if(isIOS && isFirefox){
+      html+='<div class="ib-steps">';
+      html+='<div><span class="step-icon">💡</span> Firefox di iOS tidak bisa install app.</div>';
+      html+='<div><span class="step-icon">👉</span> Buka di <b>Safari</b>, lalu ketuk <b>Share → Add to Home Screen</b></div>';
+      html+='</div>';
+    }else if(isAndroid && isChrome){
+      // Chrome on Android
+      html+='<div class="ib-steps">';
+      html+='<div><span class="step-icon">1️⃣</span> Ketuk tombol <b>⋮</b> (titik tiga) di pojok kanan atas</div>';
+      html+='<div><span class="step-icon">2️⃣</span> Pilih <b>"Add to Home screen"</b> atau <b>"Install app"</b></div>';
+      html+='<div><span class="step-icon">3️⃣</span> Ketuk <b>"Install"</b></div>';
+      html+='</div>';
+    }else if(isAndroid && isSamsung){
+      // Samsung Internet
+      html+='<div class="ib-steps">';
+      html+='<div><span class="step-icon">1️⃣</span> Ketuk ikon <b>☰</b> (menu) di bawah layar</div>';
+      html+='<div><span class="step-icon">2️⃣</span> Pilih <b>"Add page to"</b> → <b>"Home screen"</b></div>';
+      html+='<div><span class="step-icon">3️⃣</span> Ketuk <b>"Add"</b></div>';
+      html+='</div>';
+    }else if(isAndroid && isFirefox){
+      // Firefox on Android
+      html+='<div class="ib-steps">';
+      html+='<div><span class="step-icon">1️⃣</span> Ketuk tombol <b>⋮</b> (titik tiga) di pojok kanan atas</div>';
+      html+='<div><span class="step-icon">2️⃣</span> Pilih <b>"Install"</b> atau <b>"Add to Home screen"</b></div>';
+      html+='<div><span class="step-icon">3️⃣</span> Ketuk <b>"Add"</b></div>';
+      html+='</div>';
+    }else if(isAndroid && isOpera){
+      html+='<div class="ib-steps">';
+      html+='<div><span class="step-icon">1️⃣</span> Ketuk tombol <b>⋮</b> di pojok kanan atas</div>';
+      html+='<div><span class="step-icon">2️⃣</span> Pilih <b>"Add to Home screen"</b></div>';
+      html+='<div><span class="step-icon">3️⃣</span> Ketuk <b>"Add"</b></div>';
+      html+='</div>';
+    }else if(isAndroid && isEdge){
+      html+='<div class="ib-steps">';
+      html+='<div><span class="step-icon">1️⃣</span> Ketuk tombol <b>⋯</b> (menu) di bawah layar</div>';
+      html+='<div><span class="step-icon">2️⃣</span> Pilih <b>"Add to phone"</b></div>';
+      html+='<div><span class="step-icon">3️⃣</span> Ketuk <b>"Install"</b></div>';
+      html+='</div>';
+    }else if(isDesktop && isChrome){
+      // Chrome Desktop
+      html+='<div class="ib-steps">';
+      html+='<div><span class="step-icon">1️⃣</span> Klik ikon <b>📲</b> (install) di <b>address bar</b> kanan atas</div>';
+      html+='<div><span class="step-icon">2️⃣</span> Klik <b>"Install"</b></div>';
+      html+='</div>';
+      html+='<div class="ib-already">💡 Jika tidak muncul: klik <b>⋮</b> → "Install Kids Game"</div>';
+    }else if(isDesktop && isEdge){
+      // Edge Desktop
+      html+='<div class="ib-steps">';
+      html+='<div><span class="step-icon">1️⃣</span> Klik ikon <b>📲</b> atau <b>⊕</b> di <b>address bar</b></div>';
+      html+='<div><span class="step-icon">2️⃣</span> Klik <b>"Install"</b></div>';
+      html+='</div>';
+      html+='<div class="ib-already">💡 Atau: klik <b>⋯</b> → Apps → "Install this site as an app"</div>';
+    }else if(isDesktop && isFirefox){
+      html+='<div class="ib-steps">';
+      html+='<div><span class="step-icon">⚠️</span> Firefox desktop belum mendukung install app.</div>';
+      html+='<div><span class="step-icon">💡</span> Buka di <b>Chrome</b> atau <b>Edge</b> untuk install sebagai app.</div>';
+      html+='<div><span class="step-icon">📌</span> Atau: <b>bookmark</b> halaman ini untuk akses cepat.</div>';
+      html+='</div>';
+    }else if(isDesktop && isSafari){
+      // Safari on Mac
+      html+='<div class="ib-steps">';
+      html+='<div><span class="step-icon">1️⃣</span> Klik menu <b>File</b> di menu bar</div>';
+      html+='<div><span class="step-icon">2️⃣</span> Pilih <b>"Add to Dock"</b></div>';
+      html+='</div>';
+      html+='<div class="ib-already">💡 Tersedia di macOS Sonoma (14) atau lebih baru</div>';
+    }else if(isDesktop && isOpera){
+      html+='<div class="ib-steps">';
+      html+='<div><span class="step-icon">1️⃣</span> Klik ikon <b>📲</b> di address bar</div>';
+      html+='<div><span class="step-icon">2️⃣</span> Klik <b>"Install"</b></div>';
+      html+='</div>';
+    }else{
+      // Generic fallback
+      html+='<div class="ib-steps">';
+      if(isMobile){
+        html+='<div><span class="step-icon">1️⃣</span> Buka <b>menu browser</b></div>';
+        html+='<div><span class="step-icon">2️⃣</span> Pilih <b>"Add to Home Screen"</b> atau <b>"Install"</b></div>';
+        html+='<div><span class="step-icon">3️⃣</span> Konfirmasi <b>"Add"</b></div>';
+      }else{
+        html+='<div><span class="step-icon">1️⃣</span> Cari ikon <b>install</b> (📲) di address bar</div>';
+        html+='<div><span class="step-icon">2️⃣</span> Klik <b>"Install"</b></div>';
+        html+='<div><span class="step-icon">💡</span> Atau bookmark halaman ini untuk akses cepat</div>';
+      }
+      html+='</div>';
+    }
+
+    // Browser badge
+    html+='<div style="margin-top:6px;font-size:10px;color:#4b5580;font-weight:600">🔍 Terdeteksi: '+browserName+' di '+deviceType+'</div>';
+
+    banner.innerHTML=html;
+    banner.classList.add('show');
+  }
+})();
+</script>
 
 </body>
 </html>
