@@ -85,13 +85,6 @@ kidsgame/
 └── kuis-perkalian-v8-final.html
 ```
 
-## 🚀 Cara Deploy
-
-Repository ini sudah siap untuk GitHub Pages:
-
-1. Settings → Pages → Source: **main branch**
-2. Game live di `https://madsyair.github.io/kidsgame/`
-
 ## 📱 Cara Distribusi
 
 - 🔗 **Link:** `https://madsyair.github.io/kidsgame/`
