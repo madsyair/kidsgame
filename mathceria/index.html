@@ -93,12 +93,12 @@ const TX={id:{
   no:["Coba lagi! 💪","Hampir! 🤔","Semangat! 🌈","Belum tepat! 😊"],
   lv:{add:["Hitung Jari","Tambah 10","Jago Tambah","Tambah Cepat","Cerita Tambah"],
       sub:["Kurangi Yuk","Kurang 10","Jago Kurang","Kurang Cepat","Cerita Kurang"],
-      mul:["Kali Dasar","Kali Lanjut","Kali Besar","Kali Cepat","Cerita Kali"],
-      div:["Bagi Dasar","Bagi Lanjut","Bagi Besar","Bagi Cepat","Cerita Bagi"]},
+      mul:["Kali ×1 & ×2","Kali ×3, ×4, ×5","Kali ×6 s.d ×9","Kali ×10 s.d ×12","Cerita Kali"],
+      div:["Bagi ÷1 & ÷2","Bagi ÷3, ÷4, ÷5","Bagi ÷6 s.d ÷9","Bagi ÷10 s.d ÷12","Cerita Bagi"]},
   lvSub:{add:["Tambah 1-5","Tambah s.d 10","Tambah s.d 20","Tambah s.d 50","Soal cerita"],
          sub:["Kurang 1-5","Kurang s.d 10","Kurang s.d 20","Kurang s.d 50","Soal cerita"],
-         mul:["×1 s.d ×3","×2 s.d ×5","×3 s.d ×9","×4 s.d ×12","Soal cerita"],
-         div:["Bagi sederhana","Bagi s.d 30","Bagi s.d 81","Bagi s.d 144","Soal cerita"]},
+         mul:["Perkalian 1 dan 2","Perkalian 3, 4, dan 5","Perkalian 6, 7, 8, 9","Perkalian 10, 11, 12","Soal cerita"],
+         div:["Pembagian oleh 1 dan 2","Pembagian oleh 3, 4, 5","Pembagian oleh 6, 7, 8, 9","Pembagian oleh 10, 11, 12","Soal cerita"]},
   stories:{
     add:["{a} apel 🍎 ditambah {b} lagi. Berapa total?","Di taman {a} kupu-kupu 🦋, datang {b} lagi. Berapa semua?","{a} pensil ✏️ ditambah {b}. Berapa total?","Akuarium ada {a} ikan 🐟, beli {b} lagi. Berapa semua?","Di kelas {a} 👦 dan {b} 👧. Berapa jumlah semua?"],
     sub:["{a} kelereng, diberi {b} ke teman. Berapa sisa?","{a} burung 🐦, {b} terbang. Berapa tersisa?","{a} kue 🧁, dimakan {b}. Berapa sisa?","{a} balon 🎈, {b} meletus. Berapa tersisa?","{a} telur 🥚, dipakai {b}. Berapa sisa?"],
@@ -139,12 +139,12 @@ const TX={id:{
   no:["Try again! 💪","Almost! 🤔","Keep going! 🌈","Not quite! 😊"],
   lv:{add:["Finger Count","Add to 10","Add Pro","Speed Add","Word Problems"],
       sub:["Take Away","Sub to 10","Sub Pro","Speed Sub","Word Problems"],
-      mul:["Basic Multiply","Mid Multiply","Big Multiply","Speed Multiply","Word Problems"],
-      div:["Basic Divide","Mid Divide","Big Divide","Speed Divide","Word Problems"]},
+      mul:["Times ×1 & ×2","Times ×3, ×4, ×5","Times ×6 to ×9","Times ×10 to ×12","Word Problems"],
+      div:["Divide ÷1 & ÷2","Divide ÷3, ÷4, ÷5","Divide ÷6 to ÷9","Divide ÷10 to ÷12","Word Problems"]},
   lvSub:{add:["Add 1-5","Add up to 10","Add up to 20","Add up to 50","Story problems"],
          sub:["Sub 1-5","Sub up to 10","Sub up to 20","Sub up to 50","Story problems"],
-         mul:["×1 to ×3","×2 to ×5","×3 to ×9","×4 to ×12","Story problems"],
-         div:["Simple division","Divide up to 30","Divide up to 81","Divide up to 144","Story problems"]},
+         mul:["Multiply by 1 and 2","Multiply by 3, 4, 5","Multiply by 6, 7, 8, 9","Multiply by 10, 11, 12","Story problems"],
+         div:["Divide by 1 and 2","Divide by 3, 4, 5","Divide by 6, 7, 8, 9","Divide by 10, 11, 12","Story problems"]},
   stories:{
     add:["Ani has {a} apples 🍎, gets {b} more. How many total?","Garden has {a} butterflies 🦋, {b} more arrive. How many?","{a} pencils ✏️ plus {b} more. How many total?","Tank has {a} fish 🐟, buy {b} more. How many total?","Class has {a} boys 👦 and {b} girls 👧. How many total?"],
     sub:["{a} marbles, give {b} to friend. How many left?","{a} birds 🐦, {b} fly away. How many left?","{a} cakes 🧁, eat {b}. How many left?","{a} balloons 🎈, {b} pop. How many left?","{a} eggs 🥚, use {b}. How many left?"],
@@ -184,16 +184,30 @@ const CID=['add','sub','mul','div'];
 const CC={'add':'#43A047','sub':'#1565C0','mul':'#E65100','div':'#7B1FA2'};
 const CB={'add':'#E8F5E9','sub':'#E3F2FD','mul':'#FFF3E0','div':'#F3E5F5'};
 const CI={'add':'➕','sub':'➖','mul':'✖️','div':'➗'};
-const GR=[["TK A","TK B","SD 1","SD 2","SD 2-3"],["TK A","TK B","SD 1","SD 2","SD 2-3"],["SD 1-2","SD 2","SD 2-3","SD 3","SD 3-4"],["SD 1-2","SD 2","SD 2-3","SD 3","SD 3-4"]];
+const GR=[["TK A","TK B","SD 1","SD 2","SD 2-3"],["TK A","TK B","SD 1","SD 2","SD 2-3"],["SD 2","SD 2-3","SD 3","SD 3-4","SD 3-4"],["SD 2","SD 2-3","SD 3","SD 3-4","SD 3-4"]];
 const IC=["🌱","🌼","🚀","⚡","📖"];
 const LVD={// mA,xA,mB,xB,vis,qN,mx,tm,pt,pn
 add:[[1,3,1,2,2,10,100,60,10,3],[2,6,1,5,2,10,150,50,15,5],[5,13,3,9,1,10,200,40,20,7],[10,30,5,25,0,10,300,35,30,10],[0,0,0,0,-1,10,350,45,35,12]],
 sub:[[3,5,1,2,2,10,100,60,10,3],[5,10,1,5,2,10,150,50,15,5],[10,20,3,10,1,10,200,40,20,7],[20,50,5,20,0,10,300,35,30,10],[0,0,0,0,-1,10,350,45,35,12]],
-mul:[[1,3,2,5,2,10,100,60,10,3],[2,5,2,6,2,10,150,50,15,5],[3,9,2,9,1,10,200,40,20,7],[4,12,2,12,0,10,300,35,30,10],[0,0,0,0,-1,10,350,45,35,12]],
-div:[[2,4,2,5,2,10,100,60,10,3],[2,5,2,6,2,10,150,50,15,5],[3,9,2,9,1,10,200,40,20,7],[4,12,2,12,0,10,300,35,30,10],[0,0,0,0,-1,10,350,45,35,12]]
+mul:[[1,2,1,10,2,10,100,60,10,3],[3,5,2,10,2,10,150,50,15,5],[6,9,2,10,1,10,200,40,20,7],[10,12,2,12,0,10,300,35,30,10],[0,0,0,0,-1,10,350,45,35,12]],
+div:[[1,2,1,10,2,10,100,60,10,3],[3,5,2,10,2,10,150,50,15,5],[6,9,2,10,1,10,200,40,20,7],[10,12,2,12,0,10,300,35,30,10],[0,0,0,0,-1,10,350,45,35,12]]
 };
 /** Get level definition by category and id. Returns safe defaults if invalid. */
 function lv(cat,id){const arr=LVD[cat];if(!arr||id<1||id>arr.length)return{id:0,mA:1,xA:1,mB:1,xB:1,vs:0,qN:10,mx:100,tm:60,pt:10,pn:3};const d=arr[id-1];return{id,mA:d[0],xA:d[1],mB:d[2],xB:d[3],vs:d[4],qN:d[5],mx:d[6],tm:d[7],pt:d[8],pn:d[9]}}
+
+/**
+ * Exclusive multiplication/division fact pools per level.
+ * MP[i] = [factorArray, operandArray] for level i+1.
+ * Rule: each multiplier (×1,×2,...,×12) appears in exactly ONE level.
+ * Lv1: ×1, ×2   Lv2: ×3, ×4, ×5   Lv3: ×6, ×7, ×8, ×9   Lv4: ×10, ×11, ×12
+ * No fact from a lower level ever appears in a higher level.
+ */
+const MP=[
+  [[1,2],[1,2,3,4,5,6,7,8,9,10]],          // Lv1: ×1,×2 paired with 1-10 (max product 20)
+  [[3,4,5],[2,3,4,5,6,7,8,9,10]],           // Lv2: ×3,×4,×5 paired with 2-10 (max product 50)
+  [[6,7,8,9],[2,3,4,5,6,7,8,9,10]],         // Lv3: ×6-×9 paired with 2-10 (max product 90)
+  [[10,11,12],[2,3,4,5,6,7,8,9,10,11,12]]   // Lv4: ×10-×12 paired with 2-12 (max product 144)
+];
 // Story ranges
 const SR={add:[[3,15,2,10]],sub:[[8,25,2,12]],mul:[[2,8,2,8]],div:[[2,6,2,6]]};
 
@@ -229,8 +243,14 @@ function gQ(cat,lid){
   }
   if(cat==='add'){const a=R(l.mA,l.xA),b=R(l.mB,l.xB);return{a,b,an:a+b,op:'+',st:0,vs:l.vs}}
   if(cat==='sub'){const a=R(l.mA,l.xA);let b=R(l.mB,Math.min(l.xB,a-1));if(b<1)b=1;return{a,b,an:a-b,op:'-',st:0,vs:l.vs}}
-  if(cat==='mul'){const a=R(l.mA,l.xA),b=R(l.mB,l.xB);return{a,b,an:a*b,op:'×',st:0,vs:l.vs}}
-  const a=R(l.mA,l.xA),b=R(l.mB,l.xB),p=a*b;return{a:p,b,an:a,op:'÷',st:0,vs:l.vs,gr:b,pg:a}
+  if(cat==='mul'){
+    // Use exclusive pool: pick factor from level's group, operand from level's range
+    const pool=MP[lid-1],a=P(pool[0]),b=P(pool[1]);
+    return{a,b,an:a*b,op:'×',st:0,vs:l.vs}
+  }
+  // div: use same pool, generate product then ask product ÷ factor = operand
+  const pool=MP[lid-1],fac=P(pool[0]),ops=P(pool[1]),prod=fac*ops;
+  return{a:prod,b:fac,an:ops,op:'÷',st:0,vs:l.vs,gr:fac,pg:ops}
 }
 /** Generate NUM_CHOICES answer options including the correct answer, shuffled */
 function gC(ans){const s=new Set([ans]);while(s.size<NUM_CHOICES){let d=R(-3,3);if(!d)d=R(1,4);let v=ans+d;if(v<1)v=R(1,ans+4);s.add(v)}return SH([...s])}
